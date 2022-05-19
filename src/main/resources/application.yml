@@ -1,0 +1,9 @@
+server:
+  port: ${PORT:8080}
+  shutdown: graceful
+spring:
+  application:
+    name: zarco-application
+springdoc:
+  swagger-ui:
+    path: /
