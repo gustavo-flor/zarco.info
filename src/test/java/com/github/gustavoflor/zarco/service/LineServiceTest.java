@@ -48,6 +48,7 @@ class LineServiceTest {
         final var lineCaptor = ArgumentCaptor.forClass(Line.class);
         verify(lineRepository).save(lineCaptor.capture());
         final var line = lineCaptor.getValue();
+        assertThat(line.getId()).isNull();
         assertThat(line.getName()).isEqualTo(dto.name());
     }
 }
