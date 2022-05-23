@@ -15,6 +15,7 @@
         <java.version>17</java.version>
         <springdoc-openapi-ui.version>1.6.8</springdoc-openapi-ui.version>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
+        <javafaker.version>1.0.2</javafaker.version>
         <sonar.organization>gustavo-flor</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
@@ -31,6 +32,16 @@
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>${springdoc-openapi-ui.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
