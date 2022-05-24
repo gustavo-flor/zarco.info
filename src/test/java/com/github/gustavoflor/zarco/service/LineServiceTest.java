@@ -2,6 +2,7 @@ package com.github.gustavoflor.zarco.service;
 
 import com.github.gustavoflor.zarco.dto.CreateLineDTO;
 import com.github.gustavoflor.zarco.entity.Line;
+import com.github.gustavoflor.zarco.exception.LineNameAlreadyInUseException;
 import com.github.gustavoflor.zarco.repository.LineRepository;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +14,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
@@ -50,5 +53,13 @@ class LineServiceTest {
         final var line = lineCaptor.getValue();
         assertThat(line.getId()).isNull();
         assertThat(line.getName()).isEqualTo(dto.name());
+    }
+
+    @Test
+    @DisplayName("Given a line DTO with name already in use when create, then should throw LineNameAlreadyInUseException")
+    void givenALineDTOWithNameAlreadyInUseWhenCreateThenShouldThrowLineNameAlreadyInUseException() {
+        final var dto = new CreateLineDTO(FAKER.address().streetName());
+        doReturn(true).when(lineRepository).existsByName(dto.name());
+        assertThatThrownBy(() -> lineService.create(dto)).isInstanceOf(LineNameAlreadyInUseException.class);
     }
 }
