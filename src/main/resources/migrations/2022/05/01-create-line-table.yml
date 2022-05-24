@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2022-05-01-create-line-table
+      author: gustavo-flor
+      changes:
+        - createTable:
+            tableName: lines
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(64)
+                  constraints:
+                    unique: true
+                    nullable: false
