@@ -16,8 +16,6 @@ public class TestContainersConfig {
     private static final String PASSWORD = "postgres";
     private static final String PORT = "5432";
 
-
-
     @Bean(initMethod = "start")
     PostgreSQLContainer<?> databaseContainer() {
         return new PostgreSQLContainer("postgres:14-alpine")
