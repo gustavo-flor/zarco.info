@@ -15,15 +15,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class LineServiceTest {
+class LineServiceImplTest {
     static final Faker FAKER = new Faker();
 
     @InjectMocks
-    LineService lineService;
+    LineServiceImpl lineService;
 
     @Mock
     LineRepository lineRepository;
@@ -33,7 +32,8 @@ class LineServiceTest {
     void givenAnIdWhenDeleteByIdThenShouldCallDeleteOnRepository() {
         final var id = FAKER.number().randomNumber();
         lineService.deleteById(id);
-        verify(lineRepository).deleteById(id);
+        verify(lineRepository).existsById(id);
+        verify(lineRepository, never()).deleteById(id);
     }
 
     @Test

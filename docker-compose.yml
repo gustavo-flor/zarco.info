@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   postgres:
-    hostname: postgres
+    hostname: postgres:14-alpine
     container_name: postgres
     image: postgres
     restart: unless-stopped
