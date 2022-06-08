@@ -4,7 +4,6 @@ import com.github.gustavoflor.zarco.dto.CreateLineDTO;
 import com.github.gustavoflor.zarco.dto.LineDTO;
 import com.github.gustavoflor.zarco.service.LineService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.util.List;
 
-@Slf4j
 @RestController
 @RequestMapping("/lines")
 @RequiredArgsConstructor
