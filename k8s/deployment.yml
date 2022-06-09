@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zarco-deployment
+  labels:
+    app: zarco-app
+spec:
+  selector:
+    matchLabels:
+      app: zarco-app
+  template:
+    metadata:
+      labels:
+        app: zarco-app
+    spec:
+      containers:
+        - name: zarco-app
+          image: docker.io/ogustaflor/zarco
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DATASOURCE_USERNAME
+              value: postgres
+            - name: DATASOURCE_PASSWORD
+              value: postgres
+            - name: DATASOURCE_URL
+              value: jdbc:postgresql://host.docker.internal:5432/zarco
+          ports:
+            - containerPort: 8080
+  replicas: 2
