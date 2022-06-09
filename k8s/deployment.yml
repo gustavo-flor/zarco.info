@@ -23,7 +23,7 @@ spec:
             - name: DATASOURCE_PASSWORD
               value: postgres
             - name: DATASOURCE_URL
-              value: jdbc:postgresql://host.docker.internal:5432/zarco
+              value: jdbc:postgresql://host.minikube.internal:5432/zarco
           ports:
             - containerPort: 8080
   replicas: 2
