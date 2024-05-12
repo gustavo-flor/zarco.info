@@ -1,7 +1,3 @@
-spring:
-  config:
-    activate:
-      on-profile: dev
 datasource:
   read-only:
     url: jdbc:postgresql://localhost:5432/zarco?currentSchema=public
@@ -11,3 +7,7 @@ datasource:
     url: jdbc:postgresql://localhost:5432/zarco?currentSchema=public
     username: postgres
     password: postgres
+
+aws:
+  sqs:
+    new-station-queue-url: http://localhost:4566/000000000000/zarco-new-station

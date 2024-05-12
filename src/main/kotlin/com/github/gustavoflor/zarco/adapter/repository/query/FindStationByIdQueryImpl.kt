@@ -1,8 +1,8 @@
-package com.github.gustavoflor.zarco.repository.query
+package com.github.gustavoflor.zarco.adapter.repository.query
 
 import com.github.gustavoflor.zarco.core.entity.Station
-import com.github.gustavoflor.zarco.core.port.FindStationByIdQuery
-import com.github.gustavoflor.zarco.repository.mapper.StationMapper
+import com.github.gustavoflor.zarco.core.port.query.FindStationByIdQuery
+import com.github.gustavoflor.zarco.adapter.repository.mapper.StationMapper
 import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 
@@ -18,7 +18,7 @@ class FindStationByIdQueryImpl(
         val params = mapOf("id" to id)
         return try {
             jdbcTemplate.queryForObject(SQL, params, StationMapper())
-        } catch (ex: EmptyResultDataAccessException) {
+        } catch (e: EmptyResultDataAccessException) {
             null
         }
     }

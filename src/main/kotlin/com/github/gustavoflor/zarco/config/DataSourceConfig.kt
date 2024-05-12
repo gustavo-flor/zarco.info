@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import javax.sql.DataSource
 
 @Configuration
-class DatasourceConfig {
+class DataSourceConfig {
 
     @Bean
     @ConfigurationProperties("datasource.read-only")

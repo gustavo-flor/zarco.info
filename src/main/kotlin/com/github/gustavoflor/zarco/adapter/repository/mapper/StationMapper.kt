@@ -1,4 +1,4 @@
-package com.github.gustavoflor.zarco.repository.mapper
+package com.github.gustavoflor.zarco.adapter.repository.mapper
 
 import com.github.gustavoflor.zarco.core.entity.Station
 import org.springframework.jdbc.core.RowMapper
@@ -14,11 +14,11 @@ class StationMapper : RowMapper<Station> {
             .parseCaseInsensitive()
             .parseLenient()
             .appendPattern("yyyy-MM-dd HH:mm:ss")
-            .appendFraction(ChronoField.MILLI_OF_SECOND, 3, 6, true)
+            .appendFraction(ChronoField.MICRO_OF_SECOND, 0, 6, true)
             .toFormatter()
     }
 
-    override fun mapRow(rs: ResultSet, rowNum: Int): Station? = Station(
+    override fun mapRow(rs: ResultSet, rowNum: Int) = Station(
         id = rs.getLong("id"),
         name = rs.getString("name"),
         createdAt = rs.getString("created_at").let { LocalDateTime.parse(it, dateTimeFormatter) },

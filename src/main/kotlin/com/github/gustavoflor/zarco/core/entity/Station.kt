@@ -6,5 +6,5 @@ data class Station(
     val id: Long? = null,
     val name: String,
     val createdAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime = LocalDateTime.now()
+    val updatedAt: LocalDateTime = createdAt
 )

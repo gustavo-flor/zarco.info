@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestControllerAdvice
 
-@RestControllerAdvice(basePackages = ["com.github.gustavoflor.zarco.entrypoint.api.v1"])
+@RestControllerAdvice(basePackages = ["com.github.gustavoflor.zarco.entrypoint.web.api.v1"])
 class ExceptionControllerAdvice {
 
     private val logger = LoggerFactory.getLogger(javaClass)

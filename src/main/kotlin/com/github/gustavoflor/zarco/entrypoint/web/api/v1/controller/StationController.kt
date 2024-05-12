@@ -16,7 +16,6 @@ interface StationController {
     @ResponseStatus(HttpStatus.CREATED)
     fun create(@Valid @RequestBody requestBody: CreateStationRequest): StationResponse
 
-    @Deprecated("Deprecated endpoint, you should migrate to `GET /v2/stations` until 08/11/2024")
     @GetMapping(path = ["/{id}"], produces = [MediaType.APPLICATION_JSON_VALUE])
     fun findById(@PathVariable id: Long): StationResponse
 

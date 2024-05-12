@@ -3,7 +3,7 @@ package com.github.gustavoflor.zarco.core.usecase.impl
 import com.github.gustavoflor.zarco.core.entity.Station
 import com.github.gustavoflor.zarco.core.event.NewStationEvent
 import com.github.gustavoflor.zarco.core.event.publisher.NewStationEventPublisher
-import com.github.gustavoflor.zarco.core.port.CreateStationCommand
+import com.github.gustavoflor.zarco.core.port.command.CreateStationCommand
 import com.github.gustavoflor.zarco.core.usecase.CreateStationUseCase
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component

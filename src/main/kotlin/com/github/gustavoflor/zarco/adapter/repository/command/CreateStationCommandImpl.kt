@@ -1,7 +1,7 @@
-package com.github.gustavoflor.zarco.repository.command
+package com.github.gustavoflor.zarco.adapter.repository.command
 
 import com.github.gustavoflor.zarco.core.entity.Station
-import com.github.gustavoflor.zarco.core.port.CreateStationCommand
+import com.github.gustavoflor.zarco.core.port.command.CreateStationCommand
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.jdbc.support.GeneratedKeyHolder
@@ -22,12 +22,7 @@ class CreateStationCommandImpl(
         )
         val keyHolder = GeneratedKeyHolder()
         jdbcTemplate.update(SQL, MapSqlParameterSource(params), keyHolder, arrayOf("id"))
-        return Station(
-            id = keyHolder.key!!.toLong(),
-            name = station.name,
-            createdAt = station.createdAt,
-            updatedAt = station.updatedAt
-        )
+        return station.copy(id = keyHolder.key!!.toLong())
     }
 
 }

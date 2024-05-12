@@ -1,6 +1,6 @@
-package com.github.gustavoflor.zarco.config
+package com.github.gustavoflor.zarco.config.aws
 
-import com.github.gustavoflor.zarco.core.event.publisher.NewStationEventPublisher
+import com.github.gustavoflor.zarco.adapter.queue.NewStationEventPublisherSqs
 import io.awspring.cloud.sqs.operations.SqsTemplate
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -12,6 +12,6 @@ class SqsConfig(
 ) {
 
     @Bean
-    fun newStationEventPublisher() = NewStationEventPublisher { sqsTemplate.send(properties.newStationQueueUrl, it) }
+    fun newStationEventPublisher() = NewStationEventPublisherSqs(sqsTemplate, properties.newStationQueueUrl)
 
 }

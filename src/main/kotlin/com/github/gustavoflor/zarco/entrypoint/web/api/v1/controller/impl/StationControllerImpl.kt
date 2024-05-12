@@ -1,6 +1,6 @@
 package com.github.gustavoflor.zarco.entrypoint.web.api.v1.controller.impl
 
-import com.github.gustavoflor.zarco.core.port.FindStationByIdQuery
+import com.github.gustavoflor.zarco.core.port.query.FindStationByIdQuery
 import com.github.gustavoflor.zarco.entrypoint.web.api.v1.controller.StationController
 import com.github.gustavoflor.zarco.core.usecase.CreateStationUseCase
 import com.github.gustavoflor.zarco.entrypoint.web.api.v1.dto.request.CreateStationRequest
@@ -20,6 +20,7 @@ class StationControllerImpl(
         return StationResponse.of(output.station)
     }
 
+    @Deprecated("Deprecated endpoint, you should migrate to `GET /v2/stations` until 2024/05")
     override fun findById(id: Long): StationResponse {
         return findStationByIdQuery.execute(id)
             ?.let(StationResponse::of)

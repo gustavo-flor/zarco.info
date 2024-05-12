@@ -1,6 +1,6 @@
 package com.github.gustavoflor.zarco.entrypoint.web.api.v2.controller.impl
 
-import com.github.gustavoflor.zarco.core.port.FindStationByIdQuery
+import com.github.gustavoflor.zarco.core.port.query.FindStationByIdQuery
 import com.github.gustavoflor.zarco.entrypoint.web.api.v2.controller.StationController
 import com.github.gustavoflor.zarco.entrypoint.web.api.v2.dto.response.StationResponse
 import com.github.gustavoflor.zarco.entrypoint.web.exception.ResourceNotFoundException

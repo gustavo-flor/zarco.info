@@ -61,6 +61,8 @@ dependencies {
 
     // Test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.rest-assured:rest-assured:5.4.0")
+    testRuntimeOnly("com.h2database:h2")
 }
 
 dependencyManagement {
