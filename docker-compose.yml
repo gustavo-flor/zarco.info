@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:16.2-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: zarco
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./migrations:/docker-entrypoint-initdb.d
+  localstack:
+    build:
+      context: .docker/localstack
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # External Services Port Range
+    environment:
+      # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
+      DEBUG: 0
+      SERVICES: sqs
+      AWS_ACCESS_KEY_ID: test
+      AWS_SECRET_ACCESS_KEY: 123

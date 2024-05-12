@@ -1,0 +1,13 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+datasource:
+  read-only:
+    url: jdbc:postgresql://localhost:5432/zarco?currentSchema=public
+    username: postgres
+    password: postgres
+  read-write:
+    url: jdbc:postgresql://localhost:5432/zarco?currentSchema=public
+    username: postgres
+    password: postgres
