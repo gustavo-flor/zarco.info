@@ -9,7 +9,6 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 class FindStationByIdQueryImpl(
     private val jdbcTemplate: NamedParameterJdbcTemplate
 ) : FindStationByIdQuery {
-
     companion object {
         private const val SQL = "SELECT * FROM station WHERE id = :id"
     }
@@ -22,5 +21,4 @@ class FindStationByIdQueryImpl(
             null
         }
     }
-
 }

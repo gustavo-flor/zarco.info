@@ -17,4 +17,12 @@ interface StationController {
 
     @GetMapping(path = ["/{id}"], produces = [MediaType.APPLICATION_JSON_VALUE])
     fun findById(@PathVariable id: Long): StationResponse
+
+    @PutMapping(path = ["/{id}/lines/{lineId}"])
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun linkLine(@PathVariable id: Long, @PathVariable lineId: Long)
+
+    @DeleteMapping(path = ["/{id}/lines/{lineId}"])
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun unlinkLine(@PathVariable id: Long, @PathVariable lineId: Long)
 }
