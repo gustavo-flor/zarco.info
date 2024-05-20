@@ -1,6 +1,6 @@
-package com.github.gustavoflor.zarco.adapter.repository.mapper
+package com.github.gustavoflor.zarco.provider.repository
 
-import com.github.gustavoflor.zarco.core.entity.Station
+import com.github.gustavoflor.zarco.core.model.Station
 import org.springframework.jdbc.core.RowMapper
 import java.sql.ResultSet
 import java.time.LocalDateTime

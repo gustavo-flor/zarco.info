@@ -1,6 +1,6 @@
 package com.github.gustavoflor.zarco.entrypoint.web.api.v1.schema.response
 
-import com.github.gustavoflor.zarco.core.entity.Station
+import com.github.gustavoflor.zarco.core.model.Station
 import java.time.LocalDateTime
 
 data class StationSchema(

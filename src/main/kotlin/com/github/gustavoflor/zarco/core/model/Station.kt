@@ -1,8 +1,8 @@
-package com.github.gustavoflor.zarco.core.entity
+package com.github.gustavoflor.zarco.core.model
 
 import java.time.LocalDateTime
 
-data class Line(
+data class Station(
     val id: Long? = null,
     val name: String,
     val createdAt: LocalDateTime = LocalDateTime.now(),

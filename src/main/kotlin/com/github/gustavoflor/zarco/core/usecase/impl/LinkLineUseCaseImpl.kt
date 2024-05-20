@@ -1,6 +1,6 @@
 package com.github.gustavoflor.zarco.core.usecase.impl
 
-import com.github.gustavoflor.zarco.core.port.command.CreateStationLineCommand
+import com.github.gustavoflor.zarco.core.command.CreateStationLineCommand
 import com.github.gustavoflor.zarco.core.usecase.LinkLineUseCase
 import org.apache.logging.log4j.LogManager
 import org.springframework.dao.DuplicateKeyException

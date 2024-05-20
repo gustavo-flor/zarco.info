@@ -1,11 +1,15 @@
-package com.github.gustavoflor.zarco.adapter.repository.command
+package com.github.gustavoflor.zarco.provider.repository.command
 
-import com.github.gustavoflor.zarco.core.port.command.CreateStationLineCommand
+import com.github.gustavoflor.zarco.core.command.CreateStationLineCommand
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
+import org.springframework.stereotype.Repository
 import java.time.LocalDateTime
 
+@Repository
 class CreateStationLineCommandImpl(
+    @Qualifier("readWriteNamedParameterJdbcTemplate")
     private val jdbcTemplate: NamedParameterJdbcTemplate
 ) : CreateStationLineCommand {
     companion object {

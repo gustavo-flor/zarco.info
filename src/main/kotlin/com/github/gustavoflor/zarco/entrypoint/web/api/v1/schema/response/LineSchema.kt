@@ -1,6 +1,6 @@
 package com.github.gustavoflor.zarco.entrypoint.web.api.v1.schema.response
 
-import com.github.gustavoflor.zarco.core.entity.Line
+import com.github.gustavoflor.zarco.core.model.Line
 import java.time.LocalDateTime
 
 data class LineSchema(

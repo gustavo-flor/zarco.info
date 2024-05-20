@@ -2,9 +2,9 @@ package com.github.gustavoflor.zarco.repository.command
 
 import com.github.gustavoflor.zarco.CoreTest
 import com.github.gustavoflor.zarco.WebApplication
-import com.github.gustavoflor.zarco.core.entity.Station
-import com.github.gustavoflor.zarco.core.port.command.CreateStationCommand
-import com.github.gustavoflor.zarco.adapter.repository.mapper.StationMapper
+import com.github.gustavoflor.zarco.core.model.Station
+import com.github.gustavoflor.zarco.core.command.CreateStationCommand
+import com.github.gustavoflor.zarco.provider.repository.StationMapper
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test

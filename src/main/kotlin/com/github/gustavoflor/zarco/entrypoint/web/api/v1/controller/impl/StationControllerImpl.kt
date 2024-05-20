@@ -1,8 +1,8 @@
 package com.github.gustavoflor.zarco.entrypoint.web.api.v1.controller.impl
 
-import com.github.gustavoflor.zarco.core.port.command.DeleteStationLineCommand
-import com.github.gustavoflor.zarco.core.port.query.FindLinesByStationIdQuery
-import com.github.gustavoflor.zarco.core.port.query.FindStationByIdQuery
+import com.github.gustavoflor.zarco.core.command.DeleteStationLineCommand
+import com.github.gustavoflor.zarco.core.query.FindLinesByStationIdQuery
+import com.github.gustavoflor.zarco.core.query.FindStationByIdQuery
 import com.github.gustavoflor.zarco.entrypoint.web.api.v1.controller.StationController
 import com.github.gustavoflor.zarco.core.usecase.CreateStationUseCase
 import com.github.gustavoflor.zarco.core.usecase.LinkLineUseCase

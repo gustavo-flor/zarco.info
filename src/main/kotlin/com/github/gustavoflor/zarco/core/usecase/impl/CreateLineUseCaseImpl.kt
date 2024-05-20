@@ -1,7 +1,7 @@
 package com.github.gustavoflor.zarco.core.usecase.impl
 
-import com.github.gustavoflor.zarco.core.entity.Line
-import com.github.gustavoflor.zarco.core.port.command.CreateLineCommand
+import com.github.gustavoflor.zarco.core.model.Line
+import com.github.gustavoflor.zarco.core.command.CreateLineCommand
 import com.github.gustavoflor.zarco.core.usecase.CreateLineUseCase
 import org.springframework.stereotype.Component
 

@@ -1,12 +1,16 @@
-package com.github.gustavoflor.zarco.adapter.repository.query
+package com.github.gustavoflor.zarco.provider.repository.query
 
-import com.github.gustavoflor.zarco.adapter.repository.mapper.LineMapper
-import com.github.gustavoflor.zarco.core.entity.Line
-import com.github.gustavoflor.zarco.core.port.query.FindLinesByStationIdQuery
+import com.github.gustavoflor.zarco.provider.repository.LineMapper
+import com.github.gustavoflor.zarco.core.model.Line
+import com.github.gustavoflor.zarco.core.query.FindLinesByStationIdQuery
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
+import org.springframework.stereotype.Repository
 
+@Repository
 class FindLinesByStationIdQueryImpl(
+    @Qualifier("readOnlyNamedParameterJdbcTemplate")
     private val jdbcTemplate: NamedParameterJdbcTemplate
 ) : FindLinesByStationIdQuery {
     companion object {

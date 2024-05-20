@@ -1,12 +1,16 @@
-package com.github.gustavoflor.zarco.adapter.repository.command
+package com.github.gustavoflor.zarco.provider.repository.command
 
-import com.github.gustavoflor.zarco.core.entity.Station
-import com.github.gustavoflor.zarco.core.port.command.CreateStationCommand
+import com.github.gustavoflor.zarco.core.command.CreateStationCommand
+import com.github.gustavoflor.zarco.core.model.Station
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.jdbc.support.GeneratedKeyHolder
+import org.springframework.stereotype.Repository
 
+@Repository
 class CreateStationCommandImpl(
+    @Qualifier("readWriteNamedParameterJdbcTemplate")
     private val jdbcTemplate: NamedParameterJdbcTemplate
 ) : CreateStationCommand {
     companion object {

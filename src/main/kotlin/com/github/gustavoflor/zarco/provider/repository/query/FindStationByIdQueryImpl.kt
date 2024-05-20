@@ -1,12 +1,16 @@
-package com.github.gustavoflor.zarco.adapter.repository.query
+package com.github.gustavoflor.zarco.provider.repository.query
 
-import com.github.gustavoflor.zarco.core.entity.Station
-import com.github.gustavoflor.zarco.core.port.query.FindStationByIdQuery
-import com.github.gustavoflor.zarco.adapter.repository.mapper.StationMapper
+import com.github.gustavoflor.zarco.core.model.Station
+import com.github.gustavoflor.zarco.core.query.FindStationByIdQuery
+import com.github.gustavoflor.zarco.provider.repository.StationMapper
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
+import org.springframework.stereotype.Repository
 
+@Repository
 class FindStationByIdQueryImpl(
+    @Qualifier("readOnlyNamedParameterJdbcTemplate")
     private val jdbcTemplate: NamedParameterJdbcTemplate
 ) : FindStationByIdQuery {
     companion object {

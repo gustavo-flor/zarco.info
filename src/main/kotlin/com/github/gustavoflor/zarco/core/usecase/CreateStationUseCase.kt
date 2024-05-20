@@ -1,6 +1,6 @@
 package com.github.gustavoflor.zarco.core.usecase
 
-import com.github.gustavoflor.zarco.core.entity.Station
+import com.github.gustavoflor.zarco.core.model.Station
 
 interface CreateStationUseCase {
     fun execute(input: Input): Output

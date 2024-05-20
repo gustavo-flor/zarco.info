@@ -1,6 +1,6 @@
 package com.github.gustavoflor.zarco.core.usecase
 
-import com.github.gustavoflor.zarco.core.entity.Line
+import com.github.gustavoflor.zarco.core.model.Line
 
 interface CreateLineUseCase {
     fun execute(input: Input): Output

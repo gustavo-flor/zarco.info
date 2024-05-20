@@ -2,7 +2,7 @@ package com.github.gustavoflor.zarco.repository.query
 
 import com.github.gustavoflor.zarco.CoreTest
 import com.github.gustavoflor.zarco.WebApplication
-import com.github.gustavoflor.zarco.core.port.query.FindStationByIdQuery
+import com.github.gustavoflor.zarco.core.query.FindStationByIdQuery
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

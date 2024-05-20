@@ -1,6 +1,6 @@
-package com.github.gustavoflor.zarco.adapter.repository.mapper
+package com.github.gustavoflor.zarco.provider.repository
 
-import com.github.gustavoflor.zarco.core.entity.Line
+import com.github.gustavoflor.zarco.core.model.Line
 import com.github.gustavoflor.zarco.util.DateTimeUtil.DATE_TIME_ISO_8601_FORMATTER
 import org.springframework.jdbc.core.RowMapper
 import java.sql.ResultSet

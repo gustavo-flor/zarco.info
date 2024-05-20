@@ -1,10 +1,14 @@
-package com.github.gustavoflor.zarco.adapter.repository.command
+package com.github.gustavoflor.zarco.provider.repository.command
 
-import com.github.gustavoflor.zarco.core.port.command.DeleteStationLineCommand
+import com.github.gustavoflor.zarco.core.command.DeleteStationLineCommand
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
+import org.springframework.stereotype.Repository
 
+@Repository
 class DeleteStationLineCommandImpl(
+    @Qualifier("readWriteNamedParameterJdbcTemplate")
     private val jdbcTemplate: NamedParameterJdbcTemplate
 ) : DeleteStationLineCommand {
     companion object {
