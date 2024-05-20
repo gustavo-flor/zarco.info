@@ -8,12 +8,38 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
+import org.springframework.jdbc.datasource.DataSourceTransactionManager
+import org.springframework.transaction.TransactionManager
 import org.springframework.transaction.annotation.EnableTransactionManagement
 import javax.sql.DataSource
 
 @Configuration
 @EnableTransactionManagement
 class DataSourceConfig {
+    @Bean
+    @ConfigurationProperties("datasource.read-write")
+    fun readWriteDataSourceProperties(): DataSourceProperties {
+        return DataSourceProperties()
+    }
+
+    @Bean
+    @ConfigurationProperties("datasource.read-write.hikari")
+    fun readWriteDataSource(@Qualifier("readWriteDataSourceProperties") dataSourceProperties: DataSourceProperties): HikariDataSource {
+        return dataSourceProperties
+            .initializeDataSourceBuilder()
+            .type(HikariDataSource::class.java)
+            .build()
+    }
+
+    @Bean
+    fun readWriteJdbcTemplate(@Qualifier("readWriteDataSource") dataSource: DataSource): JdbcTemplate {
+        return JdbcTemplate(dataSource)
+    }
+
+    @Bean
+    fun readWriteNamedParameterJdbcTemplate(@Qualifier("readWriteDataSource") dataSource: DataSource): NamedParameterJdbcTemplate {
+        return NamedParameterJdbcTemplate(dataSource)
+    }
 
     @Bean
     @ConfigurationProperties("datasource.read-only")
@@ -43,28 +69,5 @@ class DataSourceConfig {
     }
 
     @Bean
-    @ConfigurationProperties("datasource.read-write")
-    fun readWriteDataSourceProperties(): DataSourceProperties {
-        return DataSourceProperties()
-    }
-
-    @Bean
-    @ConfigurationProperties("datasource.read-write.hikari")
-    fun readWriteDataSource(@Qualifier("readWriteDataSourceProperties") dataSourceProperties: DataSourceProperties): HikariDataSource {
-        return dataSourceProperties
-            .initializeDataSourceBuilder()
-            .type(HikariDataSource::class.java)
-            .build()
-    }
-
-    @Bean
-    fun readWriteJdbcTemplate(@Qualifier("readWriteDataSource") dataSource: DataSource): JdbcTemplate {
-        return JdbcTemplate(dataSource)
-    }
-
-    @Bean
-    fun readWriteNamedParameterJdbcTemplate(@Qualifier("readWriteDataSource") dataSource: DataSource): NamedParameterJdbcTemplate {
-        return NamedParameterJdbcTemplate(dataSource)
-    }
-
+    fun transactionManager(@Qualifier("readWriteDataSource") dataSource: HikariDataSource): TransactionManager = DataSourceTransactionManager(dataSource)
 }

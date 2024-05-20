@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
-import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.jdbc.Sql
 
 @Sql("classpath:sql/create-station-table.sql")

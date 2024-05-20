@@ -6,10 +6,12 @@ import com.github.gustavoflor.zarco.core.port.query.FindStationByIdQuery
 import com.github.gustavoflor.zarco.adapter.repository.command.CreateStationCommandImpl
 import com.github.gustavoflor.zarco.adapter.repository.command.CreateStationLineCommandImpl
 import com.github.gustavoflor.zarco.adapter.repository.command.DeleteStationLineCommandImpl
+import com.github.gustavoflor.zarco.adapter.repository.query.FindLinesByStationIdQueryImpl
 import com.github.gustavoflor.zarco.adapter.repository.query.FindStationByIdQueryImpl
 import com.github.gustavoflor.zarco.core.port.command.CreateLineCommand
 import com.github.gustavoflor.zarco.core.port.command.CreateStationLineCommand
 import com.github.gustavoflor.zarco.core.port.command.DeleteStationLineCommand
+import com.github.gustavoflor.zarco.core.port.query.FindLinesByStationIdQuery
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -36,4 +38,7 @@ class RepositoryConfig(
 
     @Bean
     fun createStationLineCommand(): CreateStationLineCommand = CreateStationLineCommandImpl(readWriteNamedParameterJdbcTemplate)
+
+    @Bean
+    fun findLinesByStationIdQuery(): FindLinesByStationIdQuery = FindLinesByStationIdQueryImpl(readOnlyNamedParameterJdbcTemplate)
 }

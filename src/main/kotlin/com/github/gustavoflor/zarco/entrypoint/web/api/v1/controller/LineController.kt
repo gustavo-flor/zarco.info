@@ -1,7 +1,7 @@
 package com.github.gustavoflor.zarco.entrypoint.web.api.v1.controller
 
-import com.github.gustavoflor.zarco.entrypoint.web.api.v1.dto.request.CreateLineRequest
-import com.github.gustavoflor.zarco.entrypoint.web.api.v1.dto.response.LineResponse
+import com.github.gustavoflor.zarco.entrypoint.web.api.v1.schema.request.CreateLineSchema
+import com.github.gustavoflor.zarco.entrypoint.web.api.v1.schema.response.LineSchema
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -16,5 +16,5 @@ import org.springframework.web.bind.annotation.ResponseStatus
 interface LineController {
     @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE], produces = [MediaType.APPLICATION_JSON_VALUE])
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@Valid @RequestBody requestBody: CreateLineRequest): LineResponse
+    fun create(@Valid @RequestBody requestBody: CreateLineSchema): LineSchema
 }
