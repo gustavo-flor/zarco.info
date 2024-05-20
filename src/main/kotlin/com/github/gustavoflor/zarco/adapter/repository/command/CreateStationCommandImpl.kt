@@ -9,7 +9,6 @@ import org.springframework.jdbc.support.GeneratedKeyHolder
 class CreateStationCommandImpl(
     private val jdbcTemplate: NamedParameterJdbcTemplate
 ) : CreateStationCommand {
-
     companion object {
         private const val SQL = "INSERT INTO station (name, created_at, updated_at) VALUES (:name, :created_at, :updated_at)"
     }
@@ -24,5 +23,4 @@ class CreateStationCommandImpl(
         jdbcTemplate.update(SQL, MapSqlParameterSource(params), keyHolder, arrayOf("id"))
         return station.copy(id = keyHolder.key!!.toLong())
     }
-
 }

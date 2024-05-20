@@ -14,16 +14,15 @@ class CreateStationUseCaseImpl(
     private val createStationCommand: CreateStationCommand,
     private val newStationEventPublisher: NewStationEventPublisher
 ): CreateStationUseCase {
-
     private val log = LoggerFactory.getLogger(javaClass)
 
     @Transactional
     override fun execute(input: CreateStationUseCase.Input): CreateStationUseCase.Output {
-        val station = Station(name = input.stationName)
-        val createdStation = createStationCommand.execute(station)
-        log.info("Successfully created new station: $createdStation")
-        newStationEventPublisher.execute(NewStationEvent(createdStation))
-        return CreateStationUseCase.Output(createdStation)
+        val station = createStationCommand.execute(
+            station = Station(name = input.stationName)
+        )
+        log.info("Successfully created new station: $station")
+        newStationEventPublisher.execute(NewStationEvent(station))
+        return CreateStationUseCase.Output(station)
     }
-
 }

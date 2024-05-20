@@ -1,8 +1,8 @@
-CREATE TABLE IF NOT EXISTS station (
+CREATE TABLE IF NOT EXISTS line (
     id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
     name VARCHAR NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL,
-    CONSTRAINT pk_station_id PRIMARY KEY (id),
-    CONSTRAINT uk_station_name UNIQUE (name)
+    CONSTRAINT pk_line_id PRIMARY KEY (id),
+    CONSTRAINT uk_line_name UNIQUE (name)
 );

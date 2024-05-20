@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 @Validated
 @RequestMapping("/v2/lines")
 interface LineController {
-
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
     fun findAll(): List<LineResponse>
-
 }

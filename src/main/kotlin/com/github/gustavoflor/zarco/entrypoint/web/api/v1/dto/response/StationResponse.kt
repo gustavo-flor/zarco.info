@@ -9,7 +9,6 @@ data class StationResponse(
     val createdAt: LocalDateTime,
     val updatedAt: LocalDateTime
 ) {
-
     companion object {
         fun of(station: Station): StationResponse = StationResponse(
             id = station.id!!,
@@ -18,5 +17,4 @@ data class StationResponse(
             updatedAt = station.updatedAt
         )
     }
-
 }

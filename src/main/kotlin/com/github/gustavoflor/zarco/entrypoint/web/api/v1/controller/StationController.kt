@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.*
 @Validated
 @RequestMapping("/v1/stations")
 interface StationController {
-
     @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE], produces = [MediaType.APPLICATION_JSON_VALUE])
     @ResponseStatus(HttpStatus.CREATED)
     fun create(@Valid @RequestBody requestBody: CreateStationRequest): StationResponse
 
     @GetMapping(path = ["/{id}"], produces = [MediaType.APPLICATION_JSON_VALUE])
     fun findById(@PathVariable id: Long): StationResponse
-
 }

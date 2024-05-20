@@ -13,7 +13,6 @@ class StationControllerImpl(
     private val findStationByIdQuery: FindStationByIdQuery,
     private val createStationUseCase: CreateStationUseCase
 ) : StationController {
-
     override fun create(requestBody: CreateStationRequest): StationResponse {
         val input = CreateStationUseCase.Input(requestBody.name)
         val output = createStationUseCase.execute(input)
@@ -26,5 +25,4 @@ class StationControllerImpl(
             ?.let(StationResponse::of)
             ?: throw ResourceNotFoundException("Station not found")
     }
-
 }
