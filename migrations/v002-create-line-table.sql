@@ -1,8 +1,11 @@
 CREATE TABLE IF NOT EXISTS line (
-    id BIGINT GENERATED ALWAYS AS IDENTITY NOT NULL,
+    id UUID NOT NULL,
     name VARCHAR NOT NULL,
+    external_id VARCHAR NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL,
-    CONSTRAINT pk_line_id PRIMARY KEY (id),
-    CONSTRAINT uk_line_name UNIQUE (name)
+    CONSTRAINT pk_line_id PRIMARY KEY (id)
 );
+
+CREATE UNIQUE INDEX uk_line_external_id
+    ON line (external_id);

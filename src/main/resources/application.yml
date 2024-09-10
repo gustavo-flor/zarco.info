@@ -2,11 +2,19 @@ server:
   port: 8080
   shutdown: graceful
   servlet:
-    context-path: /zarco-api
+    context-path: /api
+
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: zarco-monolith
+  datasource:
+    url: jdbc:postgresql://localhost:5432/zarco
+    username: postgres
+    password: postgres
 
 management:
-  server:
-    port: 8081
   endpoint:
     health:
       enabled: true
@@ -34,37 +42,3 @@ springdoc:
 #      display-name: Version 2
 #      paths-to-match:
 #        - /v2/**
-
-spring:
-  main:
-    banner-mode: off
-  application:
-    name: zarco-service
-  cloud:
-    aws:
-      region:
-        static: us-east-1
-      credentials:
-        access-key: test
-        secret-key: 123
-      sqs:
-        endpoint: http://localhost:4566
-        region: us-east-1
-
-datasource:
-  read-write:
-    url: ${READ_WRITE_DATASOURCE_URL}
-    username: ${READ_WRITE_DATASOURCE_USERNAME}
-    password: ${READ_WRITE_DATASOURCE_PASSWORD}
-    driver-class-name: org.postgresql.Driver
-  read-only:
-    url: ${READ_ONLY_DATASOURCE_URL}
-    username: ${READ_ONLY_DATASOURCE_USERNAME}
-    password: ${READ_ONLY_DATASOURCE_PASSWORD}
-    driver-class-name: org.postgresql.Driver
-    hikari:
-      read-only: true
-
-aws:
-  sqs:
-    new-station-queue-url: ${AWS_SQS_NEW_STATION_QUEUE_URL}
