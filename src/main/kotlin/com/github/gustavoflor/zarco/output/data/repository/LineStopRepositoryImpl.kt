@@ -27,5 +27,13 @@ class LineStopRepositoryImpl(
 
     override fun findLastByLineId(lineId: UUID): LineStop? = findLastLineStopByLineIdQuery.execute(lineId)
 
+    override fun deleteById(id: UUID) {
+        TODO("Not yet implemented")
+    }
+
+    override fun findById(id: UUID): LineStop? {
+        TODO("Not yet implemented")
+    }
+
     override fun findByLineIdAndParentId(lineId: UUID, parentId: UUID?): LineStop? = findLineStopByLineIdAndParentIdQuery.execute(lineId, parentId)
 }
